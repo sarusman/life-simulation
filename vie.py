@@ -54,8 +54,8 @@ class cadre:
 						else:
 							if b==3:
 								self.cells[i][j]['ouvert']=True
-							else:
-								self.cells[i][j]['ouvert']=False
+							#else:
+							#	self.cells[i][j]['ouvert']=False
 
 
 	def clear(self):
@@ -77,8 +77,10 @@ class cadre:
 		run=True
 		lff=[i for i in range(10040)]
 		blc=10
+		recycle=0
 		self.lance()
 		while run:
+			open_cells=0
 			screen.fill((255, 255, 255))
 			for event in pygame.event.get():
 				if event.type==pygame.QUIT:
@@ -94,6 +96,8 @@ class cadre:
 				for j in range(self.height):
 					#pygame.draw.rect(screen,(0, 0,0) , pygame.Rect(i*blc,j*blc, blc, blc), etr)
 					pygame.draw.rect(screen,(0, 0,0) , pygame.Rect(i*blc,j*blc, blc, blc), 0 if self.cells[i][j]['ouvert'] else 2)
+					if self.cells[i][j]['ouvert']:
+						open_cells+=1
 			self.ouvre()
 			#time.sleep(0.4)
 
@@ -104,6 +108,16 @@ class cadre:
 			niveau1 = pygame.draw.rect(screen,((200,0,0)),(950, 300, 950, 95))
 			text1 = fond.render('Effacer : (ESPACE)', True, (255, 255, 255))
 			screen.blit(text1,(950, 305))
+
+
+			niveau1 = pygame.draw.rect(screen,((200,0,0)),(950, 800, 950, 95))
+			if open_cells==recycle:
+				txt='stable'
+				text1 = fond.render(txt, True, (255, 255, 255))
+				screen.blit(text1,(950, 840))
+			text1 = fond.render('Habitant: '+str(open_cells), True, (255, 255, 255))
+			recycle=open_cells
+			screen.blit(text1,(950, 800))
 			pygame.display.update()
 
 
