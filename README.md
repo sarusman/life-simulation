@@ -6,7 +6,7 @@ The game of life is a cellular automaton whose rules were defined by J. Conway i
 In the Conway automaton, the rules are as follows:
 * An empty cell in step n - 1 and having exactly 3 neighbors will be occupied in the next step. (birth linked to an optimal environment)
 * A cell occupied in step n - 1 and having 2 or 3 neighbors will be maintained in step n otherwise it is emptied. (destruction by desertification or overpopulation)
-It is the analogy between these rules and certain criteria for the evolution of populations of bacteria that has led to this automaton being given the name of life.
+It is the analogy between these rules and certain criteria for the evolution of populations of bacteria that has led to this automaton being given the name of life. (from <a href="http://ressources.univ-lemans.fr/AccesLibre/UM/Pedago/physique/02/recre/conway.html">univ-le-mans</a>)
 
 
 ![Capture d’écran 2021-12-12 à 00 46 17](https://user-images.githubusercontent.com/60844500/145695176-448a665b-7228-4dbc-aae7-c9babc7db9f7.png)
